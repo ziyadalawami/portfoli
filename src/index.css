@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#001a03] text-white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #001a03;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c6000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #27a102;
+}
+
+/* Smooth transitions */
+a, button {
+  @apply transition-all duration-200;
+}
+
+/* Custom focus styles */
+:focus {
+  @apply outline-none ring-2 ring-[#1fea00] ring-opacity-50;
+}
+
+/* Prevent layout shift on page load */
+* {
+  @apply antialiased;
+}
