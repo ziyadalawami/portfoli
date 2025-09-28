@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
-import Header from './components/Header';
 import TabContent from './components/TabContent';
 import Footer from './components/Footer';
 
@@ -27,7 +26,6 @@ function App() {
     <div className="bg-[#000a01]">
       <Navigation />
       <div className="max-w-[1000px] mx-auto bg-[#001a03]">
-        <Header />
         <TabContent />
         <Footer />
       </div>

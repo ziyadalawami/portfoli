@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, ChevronDown, ChevronUp, Filter } from 'lucide-react';
+import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 
 const projects = [
   {
@@ -51,30 +51,6 @@ const projects = [
 
 const ProjectsTab = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
-  // Get unique categories
-  const allCategories = Array.from(
-    new Set(projects.flatMap(project => project.categories))
-  ).sort();
-
-  const filteredProjects = selectedCategories.length === 0
-    ? projects
-    : projects.filter(project =>
-        selectedCategories.some(cat => project.categories.includes(cat))
-      );
-
-  const toggleCategory = (category: string) => {
-    setSelectedCategories(prev =>
-      prev.includes(category)
-        ? prev.filter(c => c !== category)
-        : [...prev, category]
-    );
-  };
-
-  const resetCategories = () => {
-    setSelectedCategories([]);
-  };
 
   const toggleExpand = (index: number) => {
     setExpandedProject(expandedProject === index ? null : index);
@@ -82,37 +58,9 @@ const ProjectsTab = () => {
 
   return (
     <div>
-      {/* Filter Section */}
-      <div className="mb-8">
-        <div className="flex items-center space-x-2 overflow-x-auto pb-4">
-          <Filter size={20} className="text-white flex-shrink-0" />
-          {allCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => toggleCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition-colors ${
-                selectedCategories.includes(category)
-                  ? 'bg-[#1fea00] text-black'
-                  : 'bg-white/10 text-white hover:bg-white/20'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-          {selectedCategories.length > 0 && (
-            <button
-              onClick={resetCategories}
-              className="px-4 py-2 rounded-full text-sm whitespace-nowrap bg-red-500/20 text-red-500 hover:bg-red-500/30"
-            >
-              Reset
-            </button>
-          )}
-        </div>
-      </div>
-
       {/* Projects List */}
       <div className="space-y-6">
-        {filteredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <div
             key={index}
             className="bg-white rounded-lg overflow-hidden shadow-xl"
@@ -208,12 +156,6 @@ const ProjectsTab = () => {
           </div>
         ))}
       </div>
-
-      {filteredProjects.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-white/60 text-lg">No projects match the selected filters.</p>
-        </div>
-      )}
     </div>
   );
 };

@@ -10,26 +10,32 @@ const TabContent = () => {
       <div className="max-w-[1000px] mx-auto px-6">
         {/* Tab Navigation */}
         <div className="flex justify-center mb-8">
-          <div className="bg-white/10 rounded-lg p-1 flex">
+          <div className="flex border-b border-white/20">
             <button
               onClick={() => setActiveTab('projects')}
-              className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 ${
+              className={`px-8 py-4 font-semibold transition-all duration-200 relative ${
                 activeTab === 'projects'
-                  ? 'bg-[#27a102] text-white'
-                  : 'text-white/80 hover:text-white hover:bg-white/5'
+                  ? 'text-[#1fea00]'
+                  : 'text-white/80 hover:text-white'
               }`}
             >
               PROJECTS
+              {activeTab === 'projects' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#1fea00]"></div>
+              )}
             </button>
             <button
-              onClick={() => setActiveTab('about')}
-              className={`px-6 py-3 rounded-md font-semibold transition-all duration-200 ${
-                activeTab === 'about'
-                  ? 'bg-[#27a102] text-white'
-                  : 'text-white/80 hover:text-white hover:bg-white/5'
+              onClick={() => setActiveTab('background')}
+              className={`px-8 py-4 font-semibold transition-all duration-200 relative ${
+                activeTab === 'background'
+                  ? 'text-[#1fea00]'
+                  : 'text-white/80 hover:text-white'
               }`}
             >
-              ABOUT & BACKGROUND
+              BACKGROUND
+              {activeTab === 'background' && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#1fea00]"></div>
+              )}
             </button>
           </div>
         </div>
@@ -37,7 +43,7 @@ const TabContent = () => {
         {/* Tab Content */}
         <div className="min-h-[400px]">
           {activeTab === 'projects' && <ProjectsTab />}
-          {activeTab === 'about' && <AboutTab />}
+          {activeTab === 'background' && <AboutTab />}
         </div>
       </div>
     </section>

@@ -29,10 +29,10 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <div className="flex flex-col space-y-2">
-              {['Home', 'Projects', 'About & Background'].map((link) => (
+              {['Projects', 'Background'].map((link) => (
                 <a
                   key={link}
-                  href={`#${link.toLowerCase().replace(' & ', '-').replace(' ', '-')}`}
+                  href={`#${link.toLowerCase()}`}
                   className="text-white/80 hover:text-[#1fea00]"
                 >
                   {link}

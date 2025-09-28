@@ -1,47 +1,5 @@
 import React from 'react';
-import { Code2, Brain, Network, Database, Briefcase, GraduationCap, ExternalLink } from 'lucide-react';
-
-const skillCategories = [
-  {
-    title: 'Programming Languages',
-    icon: <Code2 size={24} />,
-    skills: ['Python', 'C++', 'SQL', 'Java']
-  },
-  {
-    title: 'Machine Learning',
-    icon: <Brain size={24} />,
-    skills: [
-      'Linear Regression',
-      'Logistic Regression',
-      'Decision Trees',
-      'Random Forest',
-      'Gradient Boosting',
-      'SVM',
-      'KNN',
-      'Naive Bayes',
-      'K-Means Clustering'
-    ]
-  },
-  {
-    title: 'Deep Learning',
-    icon: <Network size={24} />,
-    skills: ['ANN', 'CNN', 'RNN', 'LSTM', 'GRU']
-  },
-  {
-    title: 'Libraries & Frameworks',
-    icon: <Database size={24} />,
-    skills: [
-      'NumPy',
-      'Pandas',
-      'TensorFlow',
-      'PyTorch',
-      'Keras',
-      'Scikit-learn',
-      'Matplotlib',
-      'Seaborn'
-    ]
-  }
-];
+import { Briefcase, GraduationCap, ExternalLink } from 'lucide-react';
 
 const experiences = [
   {
@@ -85,29 +43,6 @@ const certifications = [
 const AboutTab = () => {
   return (
     <div className="space-y-12">
-      {/* Skills Section */}
-      <div>
-        <h3 className="text-2xl font-bold text-white mb-8">Skills & Expertise</h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-[#27a102] mb-4">{category.icon}</div>
-              <h4 className="text-xl font-semibold mb-4 text-gray-800">{category.title}</h4>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-3 py-1 bg-[#27a102]/10 text-[#27a102] rounded-full text-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Experience Section */}
       <div>
         <h3 className="text-2xl font-bold text-white mb-8">Work Experience</h3>

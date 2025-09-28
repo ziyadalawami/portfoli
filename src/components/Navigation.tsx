@@ -14,9 +14,8 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
     { href: '#projects', label: 'Projects' },
-    { href: '#about', label: 'About & Background' },
+    { href: '#background', label: 'Background' },
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
