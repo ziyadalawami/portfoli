@@ -32,7 +32,7 @@ const Footer = () => {
               {['Projects', 'Background'].map((link) => (
                 <a
                   key={link}
-                  href={`#${link.toLowerCase()}`}
+                  href="#"
                   className="text-white/80 hover:text-[#1fea00]"
                 >
                   {link}

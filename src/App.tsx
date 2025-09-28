@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navigation from './components/Navigation';
+import Header from './components/Header';
 import TabContent from './components/TabContent';
 import Footer from './components/Footer';
 
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="bg-[#000a01]">
-      <Navigation />
+      <Header />
       <div className="max-w-[1000px] mx-auto bg-[#001a03]">
         <TabContent />
         <Footer />

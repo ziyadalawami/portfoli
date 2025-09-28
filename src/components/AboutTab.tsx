@@ -28,14 +28,14 @@ const certifications = [
     title: 'The Machine Learning Process A-Z',
     organization: '365 Data Science',
     date: 'November 2024',
-    image: './assets/images/ml-process.jpg',
+    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400',
     verifyLink: 'https://learn.365datascience.com/c/8ee1cfe9fd/'
   },
   {
     title: 'The Machine Learning Algorithms A-Z',
     organization: '365 Data Science',
     date: 'November 2024',
-    image: './assets/images/ml-algorithms.jpg',
+    image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400',
     verifyLink: 'https://learn.365datascience.com/c/14a89f56fe/'
   }
 ];
