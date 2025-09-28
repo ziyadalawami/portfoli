@@ -28,11 +28,11 @@ const Footer = () => {
 
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-2">
-              {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Education', 'Certifications'].map((link) => (
+            <div className="flex flex-col space-y-2">
+              {['Home', 'Projects', 'About & Background'].map((link) => (
                 <a
                   key={link}
-                  href={`#${link.toLowerCase()}`}
+                  href={`#${link.toLowerCase().replace(' & ', '-').replace(' ', '-')}`}
                   className="text-white/80 hover:text-[#1fea00]"
                 >
                   {link}

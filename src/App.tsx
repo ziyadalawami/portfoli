@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
+import Header from './components/Header';
+import TabContent from './components/TabContent';
 import Footer from './components/Footer';
 
 function App() {
@@ -32,13 +27,8 @@ function App() {
     <div className="bg-[#000a01]">
       <Navigation />
       <div className="max-w-[1000px] mx-auto bg-[#001a03]">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-        <Certifications />
+        <Header />
+        <TabContent />
         <Footer />
       </div>
     </div>
