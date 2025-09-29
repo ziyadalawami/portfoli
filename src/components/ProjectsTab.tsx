@@ -14,8 +14,9 @@ const projects = [
     ],
     categories: ['ML', 'Front-end', 'Back-end'],
     tags: ['React', 'Node.js', 'MongoDB', 'Redux'],
-    github: '#',
-    live: '#'
+    sourceCode: '#',
+    liveProject: '#',
+    demoVideo: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
   },
   {
     title: 'Task Management App',
@@ -29,8 +30,9 @@ const projects = [
     ],
     categories: ['Front-end', 'Back-end'],
     tags: ['TypeScript', 'Express', 'PostgreSQL', 'Socket.io'],
-    github: '#',
-    live: null
+    sourceCode: '#',
+    liveProject: null,
+    demoVideo: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
   },
   {
     title: 'AI Content Generator',
@@ -44,8 +46,9 @@ const projects = [
     ],
     categories: ['ML', 'DL', 'NLP'],
     tags: ['Python', 'TensorFlow', 'React', 'FastAPI'],
-    github: null,
-    live: '#'
+    sourceCode: null,
+    liveProject: '#',
+    demoVideo: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
   }
 ];
 
@@ -131,22 +134,33 @@ const ProjectsTab = () => {
                   </ul>
 
                   <div className="flex space-x-4">
-                    {project.github && (
+                    {project.sourceCode && (
                       <a
-                        href={project.github}
+                        href={project.sourceCode}
                         className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
                       >
                         <Github size={20} className="mr-2" />
-                        View Code
+                        Source Code
                       </a>
                     )}
-                    {project.live && (
+                    {project.liveProject && (
                       <a
-                        href={project.live}
+                        href={project.liveProject}
                         className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
                       >
                         <ExternalLink size={20} className="mr-2" />
-                        Live Demo
+                        Live Project
+                      </a>
+                    )}
+                    {project.demoVideo && (
+                      <a
+                        href={project.demoVideo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
+                      >
+                        <ExternalLink size={20} className="mr-2" />
+                        Demo Video
                       </a>
                     )}
                   </div>

@@ -3,7 +3,8 @@ import React from 'react';
 const Header = () => {
   return (
     <header className="bg-[#001a03] py-16 w-full">
-      <div className="px-6 text-center">
+      <div className="bg-[#001a03] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-16">
+        <div className="px-6 text-center">
         {/* Profile Photo */}
         <div className="mb-8">
           <img
@@ -26,6 +27,7 @@ const Header = () => {
           Passionate AI/ML engineer with expertise in developing intelligent solutions and machine learning models. 
           I specialize in transforming complex data into actionable insights and building scalable AI applications.
         </p>
+        </div>
       </div>
     </header>
   );
