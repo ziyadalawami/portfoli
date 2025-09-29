@@ -2,10 +2,10 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-[#001a03] py-16 w-full">
-      <div className="px-6 text-center">
+    <header className="bg-[#000a01] py-16 w-full">
+      <div className="max-w-[1000px] mx-auto bg-[#001a03] px-6 py-8 rounded-lg">
         {/* Profile Photo */}
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <img
             src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300"
             alt="Ziyad Ahmed"
@@ -14,15 +14,15 @@ const Header = () => {
         </div>
 
         {/* Name and Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
           Ziyad Ahmed
         </h1>
-        <h2 className="text-xl md:text-2xl text-[#1fea00] font-semibold mb-6">
+        <h2 className="text-xl md:text-2xl text-[#1fea00] font-semibold mb-6 text-center">
           Junior AI/ML Engineer
         </h2>
 
         {/* Short Description */}
-        <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed text-center">
           Passionate AI/ML engineer with expertise in developing intelligent solutions and machine learning models. 
           I specialize in transforming complex data into actionable insights and building scalable AI applications.
         </p>

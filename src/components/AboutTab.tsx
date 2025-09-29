@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, GraduationCap, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Briefcase, GraduationCap, ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const experiences = [
   {
@@ -42,6 +42,7 @@ const certifications = [
 
 const AboutTab = () => {
   const [currentCertIndex, setCurrentCertIndex] = useState(0);
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
   const nextCert = () => {
     setCurrentCertIndex((prev) => (prev + 1) % certifications.length);
@@ -53,6 +54,14 @@ const AboutTab = () => {
 
   const goToCert = (index: number) => {
     setCurrentCertIndex(index);
+  };
+
+  const openModal = (imageUrl: string) => {
+    setModalImage(imageUrl);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
   };
 
   return (
@@ -122,8 +131,9 @@ const AboutTab = () => {
               <img
                 src={certifications[currentCertIndex].image}
                 alt={certifications[currentCertIndex].title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
                 loading="lazy"
+                onClick={() => openModal(certifications[currentCertIndex].image)}
               />
             </div>
             <div className="p-4">
@@ -182,6 +192,29 @@ const AboutTab = () => {
           )}
         </div>
       </div>
+
+      {/* Image Modal */}
+      {modalImage && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] p-4">
+            <button
+              onClick={closeModal}
+              className="absolute -top-2 -right-2 bg-white text-black rounded-full p-2 hover:bg-gray-100 transition-colors z-10"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={modalImage}
+              alt="Certificate"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

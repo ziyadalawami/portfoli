@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Github, ExternalLink, ChevronDown, ChevronUp, Play } from 'lucide-react';
 
 const projects = [
   {
@@ -15,7 +15,8 @@ const projects = [
     categories: ['ML', 'Front-end', 'Back-end'],
     tags: ['React', 'Node.js', 'MongoDB', 'Redux'],
     github: '#',
-    live: '#'
+    live: '#',
+    demo: '#'
   },
   {
     title: 'Task Management App',
@@ -30,7 +31,8 @@ const projects = [
     categories: ['Front-end', 'Back-end'],
     tags: ['TypeScript', 'Express', 'PostgreSQL', 'Socket.io'],
     github: '#',
-    live: null
+    live: null,
+    demo: '#'
   },
   {
     title: 'AI Content Generator',
@@ -45,7 +47,8 @@ const projects = [
     categories: ['ML', 'DL', 'NLP'],
     tags: ['Python', 'TensorFlow', 'React', 'FastAPI'],
     github: null,
-    live: '#'
+    live: '#',
+    demo: null
   }
 ];
 
@@ -134,19 +137,34 @@ const ProjectsTab = () => {
                     {project.github && (
                       <a
                         href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
                       >
                         <Github size={20} className="mr-2" />
-                        View Code
+                        Source Code
                       </a>
                     )}
                     {project.live && (
                       <a
                         href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
                       >
                         <ExternalLink size={20} className="mr-2" />
-                        Live Demo
+                        Live Project
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
+                      >
+                        <Play size={20} className="mr-2" />
+                        Demo Video
                       </a>
                     )}
                   </div>
