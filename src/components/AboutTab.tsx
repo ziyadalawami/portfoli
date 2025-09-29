@@ -1,5 +1,5 @@
-import React from 'react';
-import { Briefcase, GraduationCap, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { Briefcase, GraduationCap, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const experiences = [
   {
@@ -41,6 +41,20 @@ const certifications = [
 ];
 
 const AboutTab = () => {
+  const [currentCertIndex, setCurrentCertIndex] = useState(0);
+
+  const nextCert = () => {
+    setCurrentCertIndex((prev) => (prev + 1) % certifications.length);
+  };
+
+  const prevCert = () => {
+    setCurrentCertIndex((prev) => (prev - 1 + certifications.length) % certifications.length);
+  };
+
+  const goToCert = (index: number) => {
+    setCurrentCertIndex(index);
+  };
+
   return (
     <div className="space-y-12">
       {/* Experience Section */}
@@ -101,31 +115,71 @@ const AboutTab = () => {
       {/* Certifications Section */}
       <div>
         <h3 className="text-2xl font-bold text-white mb-8">Certifications</h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          {certifications.map((cert, index) => (
-            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-xl">
-              <div className="relative h-32">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="text-lg font-bold mb-2 text-gray-800">{cert.title}</h4>
-                <p className="text-[#27a102] mb-1">{cert.organization}</p>
-                <p className="text-gray-600 mb-3">{cert.date}</p>
-                <a
-                  href={cert.verifyLink}
-                  className="inline-flex items-center text-[#27a102] hover:text-[#1fea00] text-sm"
-                >
-                  <ExternalLink size={16} className="mr-1" />
-                  Verify Certificate
-                </a>
-              </div>
+        <div className="relative max-w-md mx-auto">
+          {/* Certification Card */}
+          <div className="bg-white rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-32">
+              <img
+                src={certifications[currentCertIndex].image}
+                alt={certifications[currentCertIndex].title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
-          ))}
+            <div className="p-4">
+              <h4 className="text-lg font-bold mb-2 text-gray-800">
+                {certifications[currentCertIndex].title}
+              </h4>
+              <p className="text-[#27a102] mb-1">
+                {certifications[currentCertIndex].organization}
+              </p>
+              <p className="text-gray-600 mb-3">
+                {certifications[currentCertIndex].date}
+              </p>
+              <a
+                href={certifications[currentCertIndex].verifyLink}
+                className="inline-flex items-center text-[#27a102] hover:text-[#1fea00] text-sm"
+              >
+                <ExternalLink size={16} className="mr-1" />
+                Verify Certificate
+              </a>
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          {certifications.length > 1 && (
+            <>
+              <button
+                onClick={prevCert}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-[#27a102] hover:bg-[#1fea00] text-white p-2 rounded-full transition-colors"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={nextCert}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-[#27a102] hover:bg-[#1fea00] text-white p-2 rounded-full transition-colors"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </>
+          )}
+
+          {/* Dots Indicator */}
+          {certifications.length > 1 && (
+            <div className="flex justify-center mt-4 space-x-2">
+              {certifications.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToCert(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentCertIndex
+                      ? 'bg-[#1fea00]'
+                      : 'bg-white/30 hover:bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

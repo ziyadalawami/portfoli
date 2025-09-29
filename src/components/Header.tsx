@@ -2,8 +2,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-[#001a03] py-16">
-      <div className="max-w-[1000px] mx-auto px-6 text-center">
+    <header className="bg-[#001a03] py-16 w-full">
+      <div className="px-6 text-center">
         {/* Profile Photo */}
         <div className="mb-8">
           <img
