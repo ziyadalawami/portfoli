@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, GraduationCap, ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Briefcase, GraduationCap, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const experiences = [
   {
@@ -42,8 +42,6 @@ const certifications = [
 
 const AboutTab = () => {
   const [currentCertIndex, setCurrentCertIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalImage, setModalImage] = useState('');
 
   const nextCert = () => {
     setCurrentCertIndex((prev) => (prev + 1) % certifications.length);
@@ -55,16 +53,6 @@ const AboutTab = () => {
 
   const goToCert = (index: number) => {
     setCurrentCertIndex(index);
-  };
-
-  const openModal = (imageSrc: string) => {
-    setModalImage(imageSrc);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setModalImage('');
   };
 
   return (
@@ -134,9 +122,8 @@ const AboutTab = () => {
               <img
                 src={certifications[currentCertIndex].image}
                 alt={certifications[currentCertIndex].title}
-                className="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                onClick={() => openModal(certifications[currentCertIndex].image)}
               />
             </div>
             <div className="p-4">
@@ -195,29 +182,6 @@ const AboutTab = () => {
           )}
         </div>
       </div>
-
-      {/* Image Modal */}
-      {isModalOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={closeModal}
-        >
-          <div className="relative max-w-4xl max-h-[90vh] p-4">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-white hover:text-gray-300 z-10 bg-black bg-opacity-50 rounded-full p-2"
-            >
-              <X size={24} />
-            </button>
-            <img
-              src={modalImage}
-              alt="Certificate"
-              className="max-w-full max-h-full object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
