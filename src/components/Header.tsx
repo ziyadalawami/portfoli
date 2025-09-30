@@ -9,7 +9,7 @@ const Header = () => {
           <img
             src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300"
             alt="Ziyad Ahmed"
-            className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-[#1fea00]/20"
+            className="w-32 h-32 rounded-full mx-auto object-cover"
           />
         </div>
 
