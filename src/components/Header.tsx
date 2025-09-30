@@ -11,14 +11,14 @@ const Header = () => {
 
   return (
     <header className="bg-[#000a01] py-16 w-full">
-      <div className="max-w-[1000px] mx-auto bg-[#001a03] px-6 py-8">
+      <div className="max-w-[1000px] mx-auto bg-[#001a03] px-6 py-8 border-0">
         {/* Mobile Layout - Centered */}
         <div className="block lg:hidden text-center">
           <div className="mb-8">
             <img
               src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300"
               alt="Ziyad Ahmed"
-              className="w-32 h-32 rounded-full mx-auto object-cover"
+              className="w-32 h-32 rounded-full mx-auto object-cover border-0"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
