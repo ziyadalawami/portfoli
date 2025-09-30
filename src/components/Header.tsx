@@ -10,8 +10,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#000a01] py-16 w-full">
-      <div className="max-w-[1000px] mx-auto bg-[#001a03] px-6 py-8 border-0">
+    <header className="bg-[#000a01] w-full">
+      <div className="max-w-[1000px] mx-auto bg-[#001a03] px-6 py-6">
         {/* Mobile Layout - Centered */}
         <div className="block lg:hidden text-center">
           <div className="mb-8">
