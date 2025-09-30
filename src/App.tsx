@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import TabContent from './components/TabContent';
 import Footer from './components/Footer';
-import LanguageToggle from './components/LanguageToggle';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +24,6 @@ function App() {
 
   return (
     <div className="bg-[#000a01] min-h-screen">
-      <LanguageToggle />
       <Header />
       <div className="max-w-[1000px] mx-auto bg-[#001a03]">
         <TabContent />

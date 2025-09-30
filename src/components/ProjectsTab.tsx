@@ -79,6 +79,16 @@ const ProjectsTab = () => {
                 <div className="flex-grow">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+                    <button
+                      onClick={() => toggleExpand(index)}
+                      className="text-[#27a102] hover:text-[#1fea00] transition-colors"
+                    >
+                      {expandedProject === index ? (
+                        <ChevronUp size={24} />
+                      ) : (
+                        <ChevronDown size={24} />
+                      )}
+                    </button>
                   </div>
                   <p className="text-gray-600 mb-3">
                     {expandedProject === index ? project.fullDescription : project.shortDescription}
@@ -110,21 +120,6 @@ const ProjectsTab = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Expand Button - Full Width */}
-              <button
-                onClick={() => toggleExpand(index)}
-                className="w-full py-3 bg-gray-50 hover:bg-gray-100 text-[#27a102] hover:text-[#1fea00] transition-all duration-200 flex items-center justify-center space-x-2 border-t border-gray-100"
-              >
-                <span className="font-medium">
-                  {expandedProject === index ? 'Show Less' : 'Show More'}
-                </span>
-                {expandedProject === index ? (
-                  <ChevronUp size={20} />
-                ) : (
-                  <ChevronDown size={20} />
-                )}
-              </button>
             </div>
 
             {/* Expanded Content */}
