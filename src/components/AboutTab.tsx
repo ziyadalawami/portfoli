@@ -3,7 +3,7 @@ import { Briefcase, GraduationCap } from 'lucide-react';
 
 const experiences = [
   {
-    role: 'AI instructor',
+    role: 'Part-time AI instructor',
     company: 'NTI',
     period: 'July 2025 - Present',
     description: 'Working on developing and deploying machine learning models for real-world applications.',
