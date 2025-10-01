@@ -11,14 +11,15 @@ const Footer = () => {
             <div className="space-y-3">
               <a
                 href="mailto:ziyad.ahmedalawami@gmail.com"
-                className="flex items-center text-white/80 hover:text-[#1fea00]"
+                className="flex items-center text-white/80 hover:text-[#1fea00] transition-colors"
               >
+                <Mail size={20} className="mr-2" />
                 <Mail size={20} className="mr-2" />
                 ziyad.ahmedalawami@gmail.com
               </a>
               <a
                 href="tel:+1234567890"
-                className="flex items-center text-white/80 hover:text-[#1fea00]"
+                className="flex items-center text-white/80 hover:text-[#1fea00] transition-colors"
               >
                 <Phone size={20} className="mr-2" />
                 +1 (234) 567-890
