@@ -19,7 +19,7 @@ const education = [
     institution: 'The British University in Egypt',
     degree: 'Bachelor of Science in Informatics and Computer Science',
     period: 'Sep 2020 - Jul 2024',
-    description: 'Specialized coursework in Artificial Intelligence'
+    description: 'Specialized in Artificial Intelligence'
   }
 ];
 
