@@ -4,7 +4,7 @@ import { Briefcase, GraduationCap } from 'lucide-react';
 const experiences = [
   {
     role: 'AI instructor',
-    company: 'National Telecommunication Institute',
+    company: 'NTI',
     period: 'July 2025 - Present',
     description: 'Working on developing and deploying machine learning models for real-world applications.',
     achievements: [
