@@ -5,7 +5,7 @@ const Header = () => {
   // Social media links - set to null to hide the icon
   const socialLinks = {
     whatsapp: "https://wa.me/1234567890", // Replace with your WhatsApp number
-    linkedin: "https://linkedin.com/in/yourprofile", // Replace with your LinkedIn profile
+    linkedin: "https://linkedin.com/in/ziyadalawami", // Replace with your LinkedIn profile
     github: "https://github.com/yourprofile" // Replace with your GitHub profile
   };
 
