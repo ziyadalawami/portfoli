@@ -36,9 +36,9 @@ const AboutTab = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="relative pl-8 before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
+              className="relative pl-8 before:content-[''] before:absolute before:left-3 before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
-              <Briefcase className="absolute left-0 top-2 transform -translate-x-1/2 text-[#27a102]" size={16} />
+              <Briefcase className="absolute left-0 top-2 text-[#27a102]" size={20} />
               <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
                 <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {exp.role}
@@ -67,9 +67,9 @@ const AboutTab = () => {
           {education.map((item, index) => (
             <div
               key={index}
-              className="relative pl-8 before:content-[''] before:absolute before:left-2 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
+              className="relative pl-8 before:content-[''] before:absolute before:left-3 before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
-              <GraduationCap className="absolute left-0 top-2 transform -translate-x-1/2 text-[#27a102]" size={16} />
+              <GraduationCap className="absolute left-0 top-2 text-[#27a102]" size={20} />
               <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
                 <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {item.institution}
