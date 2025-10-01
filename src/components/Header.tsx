@@ -4,9 +4,9 @@ import { MessageCircle, Linkedin, Github } from 'lucide-react';
 const Header = () => {
   // Social media links - set to null to hide the icon
   const socialLinks = {
+    github: "https://github.com/yourprofile", // Replace with your GitHub profile
     whatsapp: "https://wa.me/1234567890", // Replace with your WhatsApp number
-    linkedin: "https://linkedin.com/in/ziyadalawami", // Replace with your LinkedIn profile
-    github: "https://github.com/yourprofile" // Replace with your GitHub profile
+    linkedin: "https://linkedin.com/in/ziyadalawami" // Replace with your LinkedIn profile
   };
 
   return (
@@ -36,12 +36,12 @@ const Header = () => {
           <div className="flex justify-center space-x-6">
             {socialLinks.whatsapp && (
               <a
-                href={socialLinks.whatsapp}
+                href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#27a102] hover:text-[#1fea00] transition-colors"
               >
-                <MessageCircle size={28} />
+                <Github size={28} />
               </a>
             )}
             {socialLinks.linkedin && (
@@ -56,12 +56,12 @@ const Header = () => {
             )}
             {socialLinks.github && (
               <a
-                href={socialLinks.github}
+                href={socialLinks.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#27a102] hover:text-[#1fea00] transition-colors"
               >
-                <Github size={28} />
+                <MessageCircle size={28} />
               </a>
             )}
           </div>
