@@ -30,13 +30,6 @@ const Footer = () => {
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <div className="flex flex-col space-y-2">
               <a
-                href="mailto:ziyad.ahmedalawami@gmail.com"
-                className="flex items-center text-white/80 hover:text-[#1fea00] transition-colors"
-              >
-                <Mail size={16} className="mr-2" />
-                Email Me
-              </a>
-              <a
                 href="#top"
                 className="text-white/80 hover:text-[#1fea00] transition-colors"
               >
