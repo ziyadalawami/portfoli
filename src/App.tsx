@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import TabContent from './components/TabContent';
 import Footer from './components/Footer';
-import LanguageToggle from './components/LanguageToggle';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isArabic, setIsArabic] = useState(false);
 
   useEffect(() => {
     // Simulate content loading
@@ -15,13 +13,6 @@ function App() {
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
-
-  const toggleLanguage = () => {
-    setIsArabic(!isArabic);
-    // Apply RTL direction to document
-    document.documentElement.dir = !isArabic ? 'rtl' : 'ltr';
-    document.documentElement.lang = !isArabic ? 'ar' : 'en';
-  };
 
   if (isLoading) {
     return (
@@ -33,7 +24,6 @@ function App() {
 
   return (
     <div id="top" className="bg-[#000a01] min-h-screen">
-      <LanguageToggle isArabic={isArabic} onToggle={toggleLanguage} />
       <Header />
       <div className="max-w-[1000px] mx-auto bg-[#001a03]">
         <TabContent />

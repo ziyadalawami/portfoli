@@ -38,7 +38,7 @@ const AboutTab = () => {
               key={index}
               className="relative pl-12 before:content-[''] before:absolute before:left-4 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
-              <div className="absolute left-0 top-2 transform -translate-x-1/2">
+              <div className="absolute left-0 top-2 transform -translate-x-1/2 bg-[#001a03] p-2 rounded-full border-2 border-[#1c6000]">
                 <Briefcase className="text-[#27a102]" size={20} />
               </div>
               <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
@@ -71,7 +71,7 @@ const AboutTab = () => {
               key={index}
               className="relative pl-12 before:content-[''] before:absolute before:left-4 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
-              <div className="absolute left-0 top-2 transform -translate-x-1/2">
+              <div className="absolute left-0 top-2 transform -translate-x-1/2 bg-[#001a03] p-2 rounded-full border-2 border-[#1c6000]">
                 <GraduationCap className="text-[#27a102]" size={20} />
               </div>
               <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
