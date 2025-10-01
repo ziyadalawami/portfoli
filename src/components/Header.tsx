@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Linkedin, Github } from 'lucide-react';
+import { Github, Linkedin, MessageCircle } from 'lucide-react';
 
 const Header = () => {
   // Social media links - set to null to hide the icon
