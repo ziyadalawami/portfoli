@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Linkedin, Github, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, MessageCircle, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
