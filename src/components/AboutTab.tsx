@@ -28,24 +28,27 @@ const AboutTab = () => {
     <div className="space-y-8">
       {/* Experience Section */}
       <div>
-        <h3 className="text-2xl font-bold text-white mb-6">Work Experience</h3>
+        <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
+          <Briefcase className="mr-3 text-[#1fea00]" size={32} />
+          Work Experience
+        </h3>
         <div className="space-y-6">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
+              className="relative pl-12 before:content-[''] before:absolute before:left-4 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
-              <div className="absolute left-0 top-0 transform -translate-x-1/2 bg-[#001a03]">
-                <Briefcase className="text-[#27a102]" size={24} />
+              <div className="absolute left-0 top-2 transform -translate-x-1/2 bg-[#001a03] p-2 rounded-full border-2 border-[#1c6000]">
+                <Briefcase className="text-[#27a102]" size={20} />
               </div>
-              <div className="bg-white/5 p-6 rounded-lg border border-[#1c6000]/20">
-                <h4 className="text-[#27a102] text-xl font-semibold mb-2">
+              <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
+                <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {exp.role}
                 </h4>
-                <h5 className="text-white text-lg mb-2">{exp.company}</h5>
-                <p className="text-white/60 mb-4">{exp.period}</p>
-                <p className="text-white/80 mb-4">{exp.description}</p>
-                <ul className="list-disc list-inside text-white/80 space-y-2">
+                <h5 className="text-white text-xl mb-3">{exp.company}</h5>
+                <p className="text-[#27a102] mb-4 font-medium">{exp.period}</p>
+                <p className="text-white/80 mb-6 leading-relaxed">{exp.description}</p>
+                <ul className="list-disc list-inside text-white/80 space-y-3">
                   {exp.achievements.map((achievement, idx) => (
                     <li key={idx}>{achievement}</li>
                   ))}
@@ -58,23 +61,26 @@ const AboutTab = () => {
 
       {/* Education Section */}
       <div>
-        <h3 className="text-2xl font-bold text-white mb-6">Education</h3>
+        <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
+          <GraduationCap className="mr-3 text-[#1fea00]" size={32} />
+          Education
+        </h3>
         <div className="space-y-6">
           {education.map((item, index) => (
             <div
               key={index}
-              className="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
+              className="relative pl-12 before:content-[''] before:absolute before:left-4 before:top-0 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
-              <div className="absolute left-0 top-0 transform -translate-x-1/2 bg-[#001a03]">
-                <GraduationCap className="text-[#27a102]" size={24} />
+              <div className="absolute left-0 top-2 transform -translate-x-1/2 bg-[#001a03] p-2 rounded-full border-2 border-[#1c6000]">
+                <GraduationCap className="text-[#27a102]" size={20} />
               </div>
-              <div className="bg-white/5 p-6 rounded-lg border border-[#1c6000]/20">
-                <h4 className="text-[#27a102] text-xl font-semibold mb-2">
+              <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
+                <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {item.institution}
                 </h4>
-                <h5 className="text-white text-lg mb-2">{item.degree}</h5>
-                <p className="text-white/60 mb-2">{item.period}</p>
-                <p className="text-white/80">{item.description}</p>
+                <h5 className="text-white text-xl mb-3">{item.degree}</h5>
+                <p className="text-[#27a102] mb-4 font-medium">{item.period}</p>
+                <p className="text-white/80 leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}

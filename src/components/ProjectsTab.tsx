@@ -66,22 +66,22 @@ const ProjectsTab = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg overflow-hidden shadow-xl"
+            className="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
             {/* Project Header - Always Visible */}
-            <div className="p-6">
+            <div className="p-8">
               <div className="flex items-start space-x-4">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
+                  className="w-24 h-24 object-cover rounded-xl flex-shrink-0 shadow-md"
                 />
                 <div className="flex-grow">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-gray-800">{project.title}</h3>
                     <button
                       onClick={() => toggleExpand(index)}
-                      className="text-[#27a102] hover:text-[#1fea00] transition-colors"
+                      className="text-[#27a102] hover:text-[#1fea00] transition-all duration-200 hover:scale-110 p-2 rounded-full hover:bg-gray-100"
                     >
                       {expandedProject === index ? (
                         <ChevronUp size={24} />
@@ -90,16 +90,16 @@ const ProjectsTab = () => {
                       )}
                     </button>
                   </div>
-                  <p className="text-gray-600 mb-3">
+                  <p className="text-gray-600 mb-4 leading-relaxed">
                     {expandedProject === index ? project.fullDescription : project.shortDescription}
                   </p>
                   
                   {/* Tags - Always Visible */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {project.categories.map((category, idx) => (
                       <span
                         key={`cat-${idx}`}
-                        className="px-3 py-1 bg-[#27a102]/10 text-[#27a102] rounded-full text-sm font-semibold"
+                        className="px-4 py-2 bg-[#27a102]/10 text-[#27a102] rounded-full text-sm font-semibold border border-[#27a102]/20"
                       >
                         {category}
                       </span>
@@ -107,13 +107,13 @@ const ProjectsTab = () => {
                     {project.tags.slice(0, expandedProject === index ? project.tags.length : 3).map((tag, idx) => (
                       <span
                         key={`tag-${idx}`}
-                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
+                        className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-gray-200 transition-colors"
                       >
                         {tag}
                       </span>
                     ))}
                     {expandedProject !== index && project.tags.length > 3 && (
-                      <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">
+                      <span className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm">
                         +{project.tags.length - 3} more
                       </span>
                     )}
@@ -124,22 +124,22 @@ const ProjectsTab = () => {
 
             {/* Expanded Content */}
             {expandedProject === index && (
-              <div className="px-6 pb-6 border-t border-gray-100">
-                <div className="pt-4">
-                  <h4 className="text-gray-700 font-semibold mb-3">Key Achievements:</h4>
-                  <ul className="list-disc list-inside text-gray-600 space-y-2 mb-6">
+              <div className="px-8 pb-8 border-t border-gray-100 bg-gray-50/50">
+                <div className="pt-6">
+                  <h4 className="text-gray-700 font-semibold mb-4 text-lg">Key Achievements:</h4>
+                  <ul className="list-disc list-inside text-gray-600 space-y-3 mb-8">
                     {project.achievements.map((achievement, idx) => (
                       <li key={idx}>{achievement}</li>
                     ))}
                   </ul>
 
-                  <div className="flex space-x-4">
+                  <div className="flex flex-wrap gap-4">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
+                        className="flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-[#1fea00] hover:text-black transition-all duration-200 shadow-md hover:shadow-lg"
                       >
                         <Github size={20} className="mr-2" />
                         Source Code
@@ -150,7 +150,7 @@ const ProjectsTab = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
+                        className="flex items-center px-4 py-2 bg-[#27a102] text-white rounded-lg hover:bg-[#1fea00] hover:text-black transition-all duration-200 shadow-md hover:shadow-lg"
                       >
                         <ExternalLink size={20} className="mr-2" />
                         Live Project
@@ -161,7 +161,7 @@ const ProjectsTab = () => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center text-gray-700 hover:text-[#1fea00] transition-colors"
+                        className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-[#1fea00] hover:text-black transition-all duration-200 shadow-md hover:shadow-lg"
                       >
                         <Play size={20} className="mr-2" />
                         Demo Video

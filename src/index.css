@@ -4,24 +4,28 @@
 
 html {
   scroll-behavior: smooth;
+  font-feature-settings: "liga" 1, "kern" 1;
 }
 
 body {
   @apply bg-[#001a03] text-white;
+  font-optical-sizing: auto;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
   background: #001a03;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #1c6000;
-  border-radius: 4px;
+  border-radius: 6px;
+  border: 2px solid #001a03;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -29,16 +33,38 @@ body {
 }
 
 /* Smooth transitions */
-a, button {
-  @apply transition-all duration-200;
+a, button, div {
+  @apply transition-all duration-300;
 }
 
 /* Custom focus styles */
 :focus {
-  @apply outline-none ring-2 ring-[#1fea00] ring-opacity-50;
+  @apply outline-none ring-2 ring-[#1fea00] ring-opacity-50 ring-offset-2 ring-offset-[#001a03];
 }
 
 /* Prevent layout shift on page load */
 * {
   @apply antialiased;
+}
+
+/* Enhanced text rendering */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.025em;
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
 }

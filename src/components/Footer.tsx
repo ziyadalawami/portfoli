@@ -29,15 +29,12 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <div className="flex flex-col space-y-2">
-              {['Projects', 'Background'].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="text-white/80 hover:text-[#1fea00]"
-                >
-                  {link}
-                </a>
-              ))}
+              <a
+                href="#about"
+                className="text-white/80 hover:text-[#1fea00] transition-colors"
+              >
+                About Me
+              </a>
             </div>
           </div>
 

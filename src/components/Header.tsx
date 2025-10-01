@@ -28,8 +28,8 @@ const Header = () => {
             Junior AI/ML Engineer
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed mb-6">
-            Passionate AI/ML engineer with expertise in developing intelligent solutions and machine learning models. 
-            I specialize in transforming complex data into actionable insights and building scalable AI applications.
+            Passionate about creating intelligent solutions that make a difference. I transform complex problems into elegant AI/ML applications, 
+            bridging the gap between cutting-edge technology and real-world impact.
           </p>
           
           {/* Social Icons */}
