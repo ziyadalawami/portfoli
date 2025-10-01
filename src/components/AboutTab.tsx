@@ -28,8 +28,7 @@ const AboutTab = () => {
     <div className="space-y-8">
       {/* Experience Section */}
       <div>
-        <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-          <Briefcase className="mr-3 text-[#1fea00]" size={32} />
+        <h3 className="text-3xl font-bold text-white mb-8">
           Work Experience
         </h3>
         <div className="space-y-6">
@@ -59,8 +58,7 @@ const AboutTab = () => {
 
       {/* Education Section */}
       <div>
-        <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-          <GraduationCap className="mr-3 text-[#1fea00]" size={32} />
+        <h3 className="text-3xl font-bold text-white mb-8">
           Education
         </h3>
         <div className="space-y-6">
