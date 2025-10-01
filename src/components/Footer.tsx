@@ -42,9 +42,9 @@ const Footer = () => {
             <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
             <div className="flex space-x-4">
               {[
-                { icon: <MessageCircle size={24} />, href: '#' },
+                { icon: <Github size={24} />, href: '#' },
                 { icon: <Linkedin size={24} />, href: '#' },
-                { icon: <Github size={24} />, href: '#' }
+                { icon: <MessageCircle size={24} />, href: '#' }
               ].map((social, index) => (
                 <a
                   key={index}
