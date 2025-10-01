@@ -16,7 +16,7 @@ const Header = () => {
         <div className="text-center">
           <div className="mb-8">
             <img
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300"
+              src="./images/Untitled.png"
               alt="Ziyad Ahmed"
               className="w-32 h-32 rounded-full mx-auto object-cover border-0"
             />
