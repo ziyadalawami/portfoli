@@ -3,9 +3,9 @@ import { Briefcase, GraduationCap } from 'lucide-react';
 
 const experiences = [
   {
-    role: 'Junior AI/ML Engineer',
-    company: 'Tech Solutions Inc.',
-    period: 'Jan 2024 - Present',
+    role: 'AI instructor',
+    company: 'National Telecommunication Institute',
+    period: 'July 2025 - Present',
     description: 'Working on developing and deploying machine learning models for real-world applications.',
     achievements: [
       'Developed and deployed 3 ML models with 95% accuracy',
