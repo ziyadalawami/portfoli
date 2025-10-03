@@ -54,6 +54,13 @@ const projects = [
 
 const ProjectsTab = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  const allCategories = ['All', ...Array.from(new Set(projects.flatMap(p => p.categories)))];
+
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
+    : projects.filter(p => p.categories.includes(selectedCategory));
 
   const toggleExpand = (index: number) => {
     setExpandedProject(expandedProject === index ? null : index);
@@ -61,11 +68,33 @@ const ProjectsTab = () => {
 
   return (
     <div>
-      <div className="mb-8 text-center">
-        <p className="text-white/60 text-sm">Click on any project to see more details</p>
+      <div className="mb-8">
+        <div className="flex justify-center mb-6">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {allCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setExpandedProject(null);
+                }}
+                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  selectedCategory === category
+                    ? 'bg-[#1fea00] text-black shadow-lg shadow-[#1fea00]/30'
+                    : 'bg-white/5 text-white/80 border border-[#1c6000]/30 hover:bg-white/10 hover:border-[#27a102]/50'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="text-white/60 text-sm text-center">
+          {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'} found
+        </p>
       </div>
       <div className="space-y-6">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <div
             key={index}
             className="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"

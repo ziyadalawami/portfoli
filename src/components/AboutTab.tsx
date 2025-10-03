@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Briefcase, GraduationCap } from 'lucide-react';
+import React from 'react';
+import { Briefcase, GraduationCap, Download } from 'lucide-react';
+import SkillsSection from './SkillsSection';
 
 const experiences = [
   {
@@ -24,8 +25,24 @@ const education = [
 ];
 
 const AboutTab = () => {
+  const handleResumeDownload = () => {
+    window.open('https://drive.google.com/file/d/YOUR_FILE_ID/view', '_blank');
+  };
+
   return (
     <div className="space-y-12">
+      <div className="flex justify-center mb-8">
+        <button
+          onClick={handleResumeDownload}
+          className="flex items-center gap-3 px-6 py-3 bg-[#1fea00] text-black font-semibold rounded-lg hover:bg-[#27a102] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+        >
+          <Download size={20} />
+          Download Resume
+        </button>
+      </div>
+
+      <SkillsSection />
+
       <div>
         <div className="flex items-center gap-3 mb-8">
           <div className="h-1 w-12 bg-[#1fea00] rounded-full"></div>

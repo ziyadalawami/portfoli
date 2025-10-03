@@ -8,8 +8,36 @@ html {
 }
 
 body {
-  @apply bg-[#001a03] text-white;
+  @apply text-white;
   font-optical-sizing: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #000a01;
+  --bg-secondary: #001a03;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --border-color: rgba(28, 96, 0, 0.2);
+  --accent: #1fea00;
+  --accent-hover: #27a102;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8faf9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --accent: #27a102;
+  --accent-hover: #1fea00;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 /* Custom scrollbar */
