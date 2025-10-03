@@ -25,12 +25,14 @@ const education = [
 
 const AboutTab = () => {
   return (
-    <div className="space-y-8">
-      {/* Experience Section */}
+    <div className="space-y-12">
       <div>
-        <h3 className="text-3xl font-bold text-white mb-8">
-          Work Experience
-        </h3>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="h-1 w-12 bg-[#1fea00] rounded-full"></div>
+          <h3 className="text-3xl font-bold text-white">
+            Work Experience
+          </h3>
+        </div>
         <div className="space-y-6">
           {experiences.map((exp, index) => (
             <div
@@ -38,7 +40,7 @@ const AboutTab = () => {
               className="relative pl-8 before:content-[''] before:absolute before:left-3 before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
               <Briefcase className="absolute left-0 top-2 text-[#27a102]" size={20} />
-              <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
+              <div className="bg-white/5 p-6 md:p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40 hover:shadow-lg hover:shadow-[#1fea00]/10">
                 <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {exp.role}
                 </h4>
@@ -56,11 +58,13 @@ const AboutTab = () => {
         </div>
       </div>
 
-      {/* Education Section */}
       <div>
-        <h3 className="text-3xl font-bold text-white mb-8">
-          Education
-        </h3>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="h-1 w-12 bg-[#1fea00] rounded-full"></div>
+          <h3 className="text-3xl font-bold text-white">
+            Education
+          </h3>
+        </div>
         <div className="space-y-6">
           {education.map((item, index) => (
             <div
@@ -68,7 +72,7 @@ const AboutTab = () => {
               className="relative pl-8 before:content-[''] before:absolute before:left-3 before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]"
             >
               <GraduationCap className="absolute left-0 top-2 text-[#27a102]" size={20} />
-              <div className="bg-white/5 p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40">
+              <div className="bg-white/5 p-6 md:p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40 hover:shadow-lg hover:shadow-[#1fea00]/10">
                 <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {item.institution}
                 </h4>

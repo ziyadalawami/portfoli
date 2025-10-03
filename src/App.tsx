@@ -25,7 +25,7 @@ function App() {
   return (
     <div id="top" className="bg-[#000a01] min-h-screen">
       <Header />
-      <div className="max-w-[1000px] mx-auto bg-[#001a03]">
+      <div className="max-w-[1000px] mx-auto bg-[#001a03] shadow-2xl">
         <TabContent />
         <Footer />
       </div>

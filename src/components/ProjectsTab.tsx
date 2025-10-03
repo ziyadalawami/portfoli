@@ -61,20 +61,21 @@ const ProjectsTab = () => {
 
   return (
     <div>
-      {/* Projects List */}
+      <div className="mb-8 text-center">
+        <p className="text-white/60 text-sm">Click on any project to see more details</p>
+      </div>
       <div className="space-y-6">
         {projects.map((project, index) => (
           <div
             key={index}
             className="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
-            {/* Project Header - Always Visible */}
             <div className="p-8">
-              <div className="flex items-start space-x-4">
+              <div className="flex flex-col md:flex-row items-start md:space-x-4 space-y-4 md:space-y-0">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-24 h-24 object-cover rounded-xl flex-shrink-0 shadow-md"
+                  className="w-full md:w-24 h-48 md:h-24 object-cover rounded-xl flex-shrink-0 shadow-md"
                 />
                 <div className="flex-grow">
                   <div className="flex items-center justify-between mb-2">
@@ -82,6 +83,7 @@ const ProjectsTab = () => {
                     <button
                       onClick={() => toggleExpand(index)}
                       className="text-[#27a102] hover:text-[#1fea00] transition-all duration-200 hover:scale-110 p-2 rounded-full hover:bg-gray-100"
+                      aria-label={expandedProject === index ? 'Collapse project details' : 'Expand project details'}
                     >
                       {expandedProject === index ? (
                         <ChevronUp size={24} />
@@ -94,8 +96,7 @@ const ProjectsTab = () => {
                     {expandedProject === index ? project.fullDescription : project.shortDescription}
                   </p>
                   
-                  {/* Tags - Always Visible */}
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2 md:gap-3">
                     {project.categories.map((category, idx) => (
                       <span
                         key={`cat-${idx}`}

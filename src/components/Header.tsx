@@ -1,12 +1,15 @@
 import React from 'react';
-import { Github, Linkedin, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 
 const Header = () => {
-  // Social media links - set to null to hide the icon
   const socialLinks = {
-    github: "https://github.com/yourprofile", // Replace with your GitHub profile
-    whatsapp: "https://wa.me/1234567890", // Replace with your WhatsApp number
-    linkedin: "https://linkedin.com/in/ziyadalawami" // Replace with your LinkedIn profile
+    github: "https://github.com/yourprofile",
+    whatsapp: "https://wa.me/1234567890",
+    linkedin: "https://linkedin.com/in/ziyadalawami"
+  };
+
+  const scrollToProjects = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -32,14 +35,14 @@ const Header = () => {
             bridging the gap between cutting-edge technology and real-world impact.
           </p>
           
-          {/* Social Icons */}
-          <div className="flex justify-center space-x-6">
-            {socialLinks.whatsapp && (
+          <div className="flex justify-center space-x-6 mb-8">
+            {socialLinks.github && (
               <a
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#27a102] hover:text-[#1fea00] transition-colors"
+                className="text-[#27a102] hover:text-[#1fea00] transition-all duration-300 hover:scale-110"
+                aria-label="GitHub Profile"
               >
                 <Github size={28} />
               </a>
@@ -49,22 +52,33 @@ const Header = () => {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#27a102] hover:text-[#1fea00] transition-colors"
+                className="text-[#27a102] hover:text-[#1fea00] transition-all duration-300 hover:scale-110"
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin size={28} />
               </a>
             )}
-            {socialLinks.github && (
+            {socialLinks.whatsapp && (
               <a
                 href={socialLinks.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#27a102] hover:text-[#1fea00] transition-colors"
+                className="text-[#27a102] hover:text-[#1fea00] transition-all duration-300 hover:scale-110"
+                aria-label="WhatsApp Contact"
               >
                 <MessageCircle size={28} />
               </a>
             )}
           </div>
+
+          <button
+            onClick={scrollToProjects}
+            className="mx-auto flex items-center gap-2 text-[#27a102] hover:text-[#1fea00] transition-all duration-300 group"
+            aria-label="Scroll to projects"
+          >
+            <span className="text-sm font-medium">Explore My Work</span>
+            <ArrowDown size={20} className="animate-bounce" />
+          </button>
         </div>
       </div>
     </header>
