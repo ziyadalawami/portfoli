@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import ProjectsTab from './ProjectsTab';
 import AboutTab from './AboutTab';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations/translations';
 
 const TabContent = () => {
   const [activeTab, setActiveTab] = useState('projects');
+  const { language, isRTL } = useLanguage();
+  const t = translations[language];
 
   return (
     <section id="about" className="py-12 bg-[#001a03]">
@@ -11,26 +15,26 @@ const TabContent = () => {
         <div className="flex justify-center mb-12">
           <div className="flex bg-black/30 rounded-full p-1 backdrop-blur-sm border border-[#1c6000]/30">
             <button
-              onClick={() => setActiveTab('projects')}
+              onClick={() => setActiveTab(isRTL ? 'background' : 'projects')}
               className={`px-6 md:px-8 py-3 font-semibold transition-all duration-300 rounded-full relative text-sm md:text-base ${
-                activeTab === 'projects'
-                  ? 'text-black bg-[#1fea00] shadow-lg shadow-[#1fea00]/20'
+                activeTab === (isRTL ? 'background' : 'projects')
+                  ? 'text-black bg-[#1fea00] shadow-lg'
                   : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
-              aria-label="View Projects"
+              aria-label={isRTL ? "View Background" : "View Projects"}
             >
-              PROJECTS
+              {isRTL ? t.background : t.projects}
             </button>
             <button
-              onClick={() => setActiveTab('background')}
+              onClick={() => setActiveTab(isRTL ? 'projects' : 'background')}
               className={`px-6 md:px-8 py-3 font-semibold transition-all duration-300 rounded-full relative text-sm md:text-base ${
-                activeTab === 'background'
-                  ? 'text-black bg-[#1fea00] shadow-lg shadow-[#1fea00]/20'
+                activeTab === (isRTL ? 'projects' : 'background')
+                  ? 'text-black bg-[#1fea00] shadow-lg'
                   : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
-              aria-label="View Background"
+              aria-label={isRTL ? "View Projects" : "View Background"}
             >
-              BACKGROUND
+              {isRTL ? t.projects : t.background}
             </button>
           </div>
         </div>

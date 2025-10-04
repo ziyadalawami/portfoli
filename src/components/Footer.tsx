@@ -1,13 +1,18 @@
 import React from 'react';
 import { Github, Linkedin, MessageCircle, Mail, Phone } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <footer className="bg-black py-12 mt-12">
       <div className="max-w-[1000px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">{t.contact}</h3>
             <div className="space-y-3">
               <a
                 href="mailto:ziyad.ahmedalawami@gmail.com"
@@ -27,19 +32,19 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">{t.quickLinks}</h3>
             <div className="flex flex-col space-y-2">
               <a
                 href="#top"
                 className="text-white/80 hover:text-[#1fea00] transition-all duration-300 hover:translate-x-1 inline-block"
               >
-                Back to Top
+                {t.backToTop}
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">{t.connect}</h3>
             <div className="flex space-x-4">
               {[
                 { icon: <Github size={24} />, href: '#', label: 'GitHub' },
@@ -61,7 +66,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-[#1c6000]">
           <p className="text-white/60 text-center">
-            © {new Date().getFullYear()} Ziyad Ahmed. All rights reserved.
+            © {new Date().getFullYear()} Ziyad Ahmed. {t.copyright}
           </p>
         </div>
       </div>

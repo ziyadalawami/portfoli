@@ -2,17 +2,23 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import TabContent from './components/TabContent';
 import Footer from './components/Footer';
+import MarqueeBar from './components/MarqueeBar';
+import { useLanguage } from './contexts/LanguageContext';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const { isRTL } = useLanguage();
 
   useEffect(() => {
-    // Simulate content loading
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+  }, [isRTL]);
 
   if (isLoading) {
     return (
@@ -24,10 +30,13 @@ function App() {
 
   return (
     <div id="top" className="bg-[#000a01] min-h-screen">
-      <Header />
-      <div className="max-w-[1000px] mx-auto bg-[#001a03] shadow-2xl">
-        <TabContent />
-        <Footer />
+      <MarqueeBar />
+      <div className="pt-10">
+        <Header />
+        <div className="max-w-[1000px] mx-auto bg-[#001a03] shadow-2xl">
+          <TabContent />
+          <Footer />
+        </div>
       </div>
     </div>
   );

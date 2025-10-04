@@ -1,46 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Briefcase, GraduationCap } from 'lucide-react';
-
-const experiences = [
-  {
-    role: 'Part-time AI instructor',
-    company: 'NTI',
-    period: 'July 2025 - Present',
-    description: 'Working on developing and deploying machine learning models for real-world applications.',
-    achievements: [
-      'Developed and deployed 3 ML models with 95% accuracy',
-      'Collaborated with cross-functional teams to integrate ML solutions'
-    ]
-  }
-];
-
-const education = [
-  {
-    institution: 'The British University in Egypt',
-    degree: 'Bachelor of Science in Informatics and Computer Science',
-    period: 'Sep 2020 - Jul 2024',
-    description: 'Specialized in Artificial Intelligence'
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations, experienceTranslations, educationTranslations } from '../translations/translations';
 
 const AboutTab = () => {
+  const { language, isRTL } = useLanguage();
+  const t = translations[language];
+  const exp = experienceTranslations[language];
+  const edu = educationTranslations[language];
+
+  const experiences = [exp];
+  const education = [edu];
   return (
     <div className="space-y-12">
       <div>
-        <div className="flex items-center gap-3 mb-8">
+        <div className={`flex items-center gap-3 mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className="h-1 w-12 bg-[#1fea00] rounded-full"></div>
           <h3 className="text-3xl font-bold text-white">
-            Work Experience
+            {t.workExperience}
           </h3>
         </div>
         <div className="space-y-6">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="relative pl-8 before:content-[''] before:absolute before:left-3 before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]"
+              className={`relative ${isRTL ? 'pr-8' : 'pl-8'} before:content-[''] before:absolute ${isRTL ? 'before:right-3' : 'before:left-3'} before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]`}
             >
-              <Briefcase className="absolute left-0 top-2 text-[#27a102]" size={20} />
-              <div className="bg-white/5 p-6 md:p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40 hover:shadow-lg hover:shadow-[#1fea00]/10">
+              <Briefcase className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-2 text-[#27a102]`} size={20} />
+              <div className="bg-white/5 p-6 md:p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40 hover:shadow-lg">
                 <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {exp.role}
                 </h4>
@@ -59,20 +46,20 @@ const AboutTab = () => {
       </div>
 
       <div>
-        <div className="flex items-center gap-3 mb-8">
+        <div className={`flex items-center gap-3 mb-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className="h-1 w-12 bg-[#1fea00] rounded-full"></div>
           <h3 className="text-3xl font-bold text-white">
-            Education
+            {t.education}
           </h3>
         </div>
         <div className="space-y-6">
           {education.map((item, index) => (
             <div
               key={index}
-              className="relative pl-8 before:content-[''] before:absolute before:left-3 before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]"
+              className={`relative ${isRTL ? 'pr-8' : 'pl-8'} before:content-[''] before:absolute ${isRTL ? 'before:right-3' : 'before:left-3'} before:top-8 before:bottom-0 before:w-px before:bg-[#1c6000]`}
             >
-              <GraduationCap className="absolute left-0 top-2 text-[#27a102]" size={20} />
-              <div className="bg-white/5 p-6 md:p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40 hover:shadow-lg hover:shadow-[#1fea00]/10">
+              <GraduationCap className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-2 text-[#27a102]`} size={20} />
+              <div className="bg-white/5 p-6 md:p-8 rounded-xl border border-[#1c6000]/20 hover:bg-white/10 transition-all duration-300 hover:border-[#27a102]/40 hover:shadow-lg">
                 <h4 className="text-[#1fea00] text-2xl font-semibold mb-3">
                   {item.institution}
                 </h4>

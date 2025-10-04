@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, ChevronDown, ChevronUp, Play } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations, projectTranslations } from '../translations/translations';
 
 const projects = [
   {
@@ -54,6 +56,15 @@ const projects = [
 
 const ProjectsTab = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const { language, isRTL } = useLanguage();
+  const t = translations[language];
+  const pt = projectTranslations[language];
+
+  const projectsList = [
+    { ...pt.ecommerce, image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400', categories: ['ML', 'Front-end', 'Back-end'], tags: ['React', 'Node.js', 'MongoDB', 'Redux'], github: '#', live: '#', demo: '#' },
+    { ...pt.taskManagement, image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400', categories: ['Front-end', 'Back-end'], tags: ['TypeScript', 'Express', 'PostgreSQL', 'Socket.io'], github: '#', live: null, demo: '#' },
+    { ...pt.aiContent, image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400', categories: ['ML', 'DL', 'NLP'], tags: ['Python', 'TensorFlow', 'React', 'FastAPI'], github: null, live: '#', demo: null }
+  ];
 
   const toggleExpand = (index: number) => {
     setExpandedProject(expandedProject === index ? null : index);
@@ -62,22 +73,22 @@ const ProjectsTab = () => {
   return (
     <div>
       <div className="mb-8 text-center">
-        <p className="text-white/60 text-sm">Click on any project to see more details</p>
+        <p className="text-white/60 text-sm">{t.clickDetails}</p>
       </div>
       <div className="space-y-6">
-        {projects.map((project, index) => (
+        {projectsList.map((project, index) => (
           <div
             key={index}
             className="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="p-8">
-              <div className="flex flex-col md:flex-row items-start md:space-x-4 space-y-4 md:space-y-0">
+              <div className={`flex flex-col md:flex-row items-start space-y-4 md:space-y-0 ${isRTL ? 'md:space-x-reverse md:space-x-4' : 'md:space-x-4'}`}>
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full md:w-24 h-48 md:h-24 object-cover rounded-xl flex-shrink-0 shadow-md"
                 />
-                <div className="flex-grow">
+                <div className={`flex-grow ${isRTL ? 'text-right' : ''}`}>
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-2xl font-bold text-gray-800">{project.title}</h3>
                     <button
@@ -127,14 +138,14 @@ const ProjectsTab = () => {
             {expandedProject === index && (
               <div className="px-8 pb-8 border-t border-gray-100 bg-gray-50/50">
                 <div className="pt-6">
-                  <h4 className="text-gray-700 font-semibold mb-4 text-lg">Key Achievements:</h4>
-                  <ul className="list-disc list-inside text-gray-600 space-y-3 mb-8">
+                  <h4 className={`text-gray-700 font-semibold mb-4 text-lg ${isRTL ? 'text-right' : ''}`}>{t.keyAchievements}</h4>
+                  <ul className={`list-disc text-gray-600 space-y-3 mb-8 ${isRTL ? 'list-inside text-right' : 'list-inside'}`}>
                     {project.achievements.map((achievement, idx) => (
                       <li key={idx}>{achievement}</li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-4">
+                  <div className={`flex flex-wrap gap-4 ${isRTL ? 'justify-end' : ''}`}>
                     {project.github && (
                       <a
                         href={project.github}
@@ -142,8 +153,8 @@ const ProjectsTab = () => {
                         rel="noopener noreferrer"
                         className="flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-[#1fea00] hover:text-black transition-all duration-200 shadow-md hover:shadow-lg"
                       >
-                        <Github size={20} className="mr-2" />
-                        Source Code
+                        <Github size={20} className={isRTL ? 'ml-2' : 'mr-2'} />
+                        {t.sourceCode}
                       </a>
                     )}
                     {project.live && (
@@ -153,8 +164,8 @@ const ProjectsTab = () => {
                         rel="noopener noreferrer"
                         className="flex items-center px-4 py-2 bg-[#27a102] text-white rounded-lg hover:bg-[#1fea00] hover:text-black transition-all duration-200 shadow-md hover:shadow-lg"
                       >
-                        <ExternalLink size={20} className="mr-2" />
-                        Live Project
+                        <ExternalLink size={20} className={isRTL ? 'ml-2' : 'mr-2'} />
+                        {t.liveProject}
                       </a>
                     )}
                     {project.demo && (
@@ -164,8 +175,8 @@ const ProjectsTab = () => {
                         rel="noopener noreferrer"
                         className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-[#1fea00] hover:text-black transition-all duration-200 shadow-md hover:shadow-lg"
                       >
-                        <Play size={20} className="mr-2" />
-                        Demo Video
+                        <Play size={20} className={isRTL ? 'ml-2' : 'mr-2'} />
+                        {t.demoVideo}
                       </a>
                     )}
                   </div>

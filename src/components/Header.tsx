@@ -1,7 +1,12 @@
 import React from 'react';
 import { Github, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Header = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const socialLinks = {
     github: "https://github.com/yourprofile",
     whatsapp: "https://wa.me/1234567890",
@@ -15,7 +20,6 @@ const Header = () => {
   return (
     <header className="bg-[#000a01] w-full">
       <div className="max-w-[1000px] mx-auto bg-[#001a03] px-6 py-6">
-        {/* Centered Layout for All Screens */}
         <div className="text-center">
           <div className="mb-8">
             <img
@@ -25,16 +29,15 @@ const Header = () => {
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Ziyad Ahmed
+            {t.name}
           </h1>
           <h2 className="text-xl md:text-2xl text-[#1fea00] font-semibold mb-6">
-            Junior AI/ML Engineer
+            {t.title}
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed mb-6">
-            Passionate about creating intelligent solutions that make a difference. I transform complex problems into elegant AI/ML applications, 
-            bridging the gap between cutting-edge technology and real-world impact.
+            {t.description}
           </p>
-          
+
           <div className="flex justify-center space-x-6 mb-8">
             {socialLinks.github && (
               <a
@@ -76,7 +79,7 @@ const Header = () => {
             className="mx-auto flex items-center gap-2 text-[#27a102] hover:text-[#1fea00] transition-all duration-300 group"
             aria-label="Scroll to projects"
           >
-            <span className="text-sm font-medium">Explore My Work</span>
+            <span className="text-sm font-medium">{t.exploreWork}</span>
             <ArrowDown size={20} className="animate-bounce" />
           </button>
         </div>
