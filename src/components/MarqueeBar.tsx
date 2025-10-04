@@ -8,7 +8,7 @@ const MarqueeBar = () => {
   const t = translations[language];
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-black h-10 flex items-center justify-between border-b border-[#1c6000]/30">
+    <div className="fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-black h-10 w-full max-w-[1000px] flex items-center justify-between border-b border-[#1c6000]/30">
       <div className="flex-1 overflow-hidden">
         <div className="marquee-container">
           <div className="marquee-content">
@@ -33,7 +33,7 @@ const MarqueeBar = () => {
           <Languages size={18} />
         </button>
 
-        <div className="absolute right-4 top-full mt-2 bg-black border border-[#1c6000]/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        <div className="absolute right-0 top-full mt-2 bg-black border border-[#1c6000]/30 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
           <button
             onClick={() => setLanguage('ar')}
             className={`block w-full text-left px-4 py-2 text-sm hover:bg-[#1c6000]/20 transition-colors ${

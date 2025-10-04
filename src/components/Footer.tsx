@@ -45,7 +45,7 @@ const Footer = () => {
 
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">{t.connect}</h3>
-            <div className="flex space-x-4">
+            <div className="flex gap-4" style={{ flexDirection: 'row' }}>
               {[
                 { icon: <Github size={24} />, href: '#', label: 'GitHub' },
                 { icon: <Linkedin size={24} />, href: '#', label: 'LinkedIn' },

@@ -102,3 +102,13 @@ html[dir="rtl"] .text-left {
 html[dir="rtl"] .text-right {
   text-align: left;
 }
+
+/* Keep scrollbar on the right in RTL */
+html[dir="rtl"] {
+  overflow-y: scroll;
+  direction: ltr;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+}

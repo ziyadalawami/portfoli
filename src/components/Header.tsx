@@ -38,7 +38,7 @@ const Header = () => {
             {t.description}
           </p>
 
-          <div className="flex justify-center space-x-6 mb-8">
+          <div className="flex justify-center gap-6 mb-8" style={{ flexDirection: 'row' }}>
             {socialLinks.github && (
               <a
                 href={socialLinks.github}
